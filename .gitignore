@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*~
+*.swp
+
+# passwords, DB settings, API keys
+settings/sensitive/*
+settings/local.py
+
+/logs/
+/node_modules/
+/elasticsearch*
+/whoosh_index/
+
+
+public/*
+!public/media/
+public/media/*
+!public/media/image_not_found.jpg
+
+.idea/
+*sqlite*
+
+.env*
+.directory*
+celerybeat-schedule
+tmux.sh
+.coverage
+
+.python-version
+
+*-bundle.js
+
+# Ansible-related stuff
+*.retry
+
+# Deployment settings
+circus.ini
