@@ -324,6 +324,8 @@ OSCAR_DEFAULT_CURRENCY = 'UAH'
 # in the page title.
 DISPLAY_VERSION = False
 
+OSCAR_HIDDEN_FEATURES = ['reviews']
+
 
 # Order processing
 # ================
