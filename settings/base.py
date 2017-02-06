@@ -241,7 +241,10 @@ INSTALLED_APPS = [
     # 'debug_toolbar',
     'apps.gateway',     # For allowing dashboard access
     'widget_tweaks',
-] + oscar.get_core_apps(['apps.partner',])
+] + oscar.get_core_apps([
+    'apps.partner',
+    'apps.dashboard.catalogue',
+])
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
