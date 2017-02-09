@@ -244,6 +244,7 @@ INSTALLED_APPS = [
 ] + oscar.get_core_apps([
     'apps.partner',
     'apps.dashboard.catalogue',
+    'apps.basket',
 ])
 
 # Add Oscar's custom auth backend so users can sign in using their email
