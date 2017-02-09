@@ -4,12 +4,12 @@
 
 {% purchase_info_for_product request product as session %}
 
-{% if session.price.sale_price %}
+<!--{# {% if session.price.sale_price %}
     <p class="price_reduced">{{ session.price.excl_tax|currency:session.price.currency }}</p>
     <p class="price_color">{{ session.price.sale_price|currency:session.price.currency }}</p>
 {% else %}
-    <p class="price_color">{{ session.price.excl_tax|currency:session.price.currency }}</p>
-{% endif %}
+{% endif %} #}-->
+<p class="price_color">{{ session.price.excl_tax|currency:session.price.currency }}</p>
 <p class="{{ session.availability.code }} availability">
     <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>
     {% if verbose %}
