@@ -1,0 +1,7 @@
+{% extends "oscar/catalogue/detail.html" %}
+{% load staticfiles %}
+
+{% block extrascripts %}
+    {{block.super}}
+    <script type="text/javascript" src="{% static "/js/product-page.js" %}"></script>
+{% endblock extrascripts %}

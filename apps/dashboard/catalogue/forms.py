@@ -3,8 +3,9 @@ from django.forms.models import inlineformset_factory
 
 from oscar.core.loading import get_model
 
-from oscar.apps.dashboard.catalogue.forms import\
-    StockRecordForm as OscarStockrecordForm
+from oscar.apps.dashboard.catalogue.forms import (
+    StockRecordForm as OscarStockrecordForm,
+    ProductForm as OscarProductForm)
 
 
 StockRecord = get_model('partner', 'StockRecord')
@@ -68,3 +69,15 @@ class StockRecordFormSet(BaseStockRecordFormSet):
         kwargs['user'] = self.user
         return super(StockRecordFormSet, self)._construct_form(
             i, **kwargs)
+
+
+class ProductForm(OscarProductForm):
+    class Meta:
+        model = Product
+        fields = [
+            'title', 'upc', 'description', 'is_discountable', 'structure',
+            'presentation']
+        widgets = {
+            'structure': forms.HiddenInput(),
+            'is_discountable': forms.HiddenInput()
+        }
