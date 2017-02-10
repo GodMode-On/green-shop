@@ -78,5 +78,6 @@ class ProductForm(OscarProductForm):
             'title', 'upc', 'description', 'is_discountable', 'structure',
             'presentation']
         widgets = {
-            'structure': forms.HiddenInput()
+            'structure': forms.HiddenInput(),
+            'is_discountable': forms.HiddenInput()
         }
