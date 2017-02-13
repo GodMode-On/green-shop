@@ -37,9 +37,9 @@ class AddToBasketForm(OscarAddToBAsketForm):
             summary = child.get_title_for_dropdown
             choices.append((child.get_absolute_url(), summary))
         self.fields['child_id'] = forms.ChoiceField(
-            choices=tuple(choices), label=_("Size"),
+            choices=tuple(choices), label=_("Variant"),
             widget=widgets.AdvancedSelect(disabled_values=disabled_values))
-        self.fields = self.fields.__class__(self.fields.items()[::-1])
+        # self.fields = self.fields.__class__(self.fields.items()[::-1])
 
     def clean_child_id(self):
         try:
@@ -54,8 +54,31 @@ class AddToBasketForm(OscarAddToBAsketForm):
                 _("Please select a valid product"),
                 code='invalid')
 
+        # import pdb; pdb.set_trace()
+
         # To avoid duplicate SQL queries, we cache a copy of the loaded child
         # product as we're going to need it later.
         self.child_product = child
 
         return self.cleaned_data['child_id']
+
+    @property
+    def product(self):
+        return self.parent_product
+
+
+class SimpleAddToBasketForm(AddToBasketForm):
+    quantity = forms.IntegerField(
+        initial=1, min_value=1, widget=forms.HiddenInput, label=_('Quantity'))
+
+    def __init__(self, basket, product, *args, **kwargs):
+        self.basket = basket
+        self.parent_product = product
+
+        super(SimpleAddToBasketForm, self).__init__(
+            basket, product, *args, **kwargs)
+        try:
+            self.fields['child_id'].required = False
+            # self.fields['child_id'].widget = forms.HiddenInput()
+        except KeyError:
+            pass
