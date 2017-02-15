@@ -142,7 +142,7 @@ MIDDLEWARE_CLASSES = (
     'oscar.apps.basket.middleware.BasketMiddleware',
     # Enable the ProfileMiddleware, then add ?cprofile to any
     # URL path to print out profile details
-    #'oscar.profiling.middleware.ProfileMiddleware',
+    # 'oscar.profiling.middleware.ProfileMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -356,6 +356,10 @@ OSCAR_ORDER_STATUS_CASCADE = {
     'Cancelled': 'Cancelled',
     'Complete': 'Shipped',
 }
+
+# Address settings
+OSCAR_REQUIRED_ADDRESS_FIELDS = (
+    'first_name', 'last_name', 'line1', 'line4', 'postcode')
 
 # LESS/CSS
 # ========
