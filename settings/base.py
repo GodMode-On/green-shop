@@ -246,6 +246,7 @@ INSTALLED_APPS = [
     'apps.dashboard.catalogue',
     'apps.basket',
     'apps.catalogue',
+    'apps.address',
 ])
 
 # Add Oscar's custom auth backend so users can sign in using their email
