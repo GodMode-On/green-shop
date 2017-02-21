@@ -17,6 +17,12 @@ class Product(AbstractProduct):
         else:
             return _("Product {}".format(self.pk))
 
+    @property
+    def get_description(self):
+        if self.is_child:
+            return self.parent.description
+        return self.description
+
     def _clean_child(self):
         """
         Validates a child product
