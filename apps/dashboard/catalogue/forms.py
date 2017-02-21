@@ -35,7 +35,7 @@ class StockRecordForm(OscarStockrecordForm):
         fields = [
             'partner', 'partner_sku',
             'price_currency', 'price_excl_tax',
-            'num_in_stock', 'sale_price'
+            'num_in_stock',
         ]
         widgets = {
             'partner': forms.HiddenInput(),
