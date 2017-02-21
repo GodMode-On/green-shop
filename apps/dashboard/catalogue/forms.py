@@ -35,7 +35,7 @@ class StockRecordForm(OscarStockrecordForm):
         fields = [
             'partner', 'partner_sku',
             'price_currency', 'price_excl_tax',
-            'num_in_stock', 'sale_price'
+            'num_in_stock',
         ]
         widgets = {
             'partner': forms.HiddenInput(),
@@ -72,6 +72,13 @@ class StockRecordFormSet(BaseStockRecordFormSet):
 
 
 class ProductForm(OscarProductForm):
+    def __init__(self, *args, **kwargs):
+        super(ProductForm, self).__init__(*args, **kwargs)
+        self.fields['upc'].initial = self.generate_upc()
+
+    def generate_upc(self):
+        return int(Product.objects.order_by('-pk')[0].pk) + 1
+
     class Meta:
         model = Product
         fields = [
@@ -79,5 +86,6 @@ class ProductForm(OscarProductForm):
             'presentation']
         widgets = {
             'structure': forms.HiddenInput(),
-            'is_discountable': forms.HiddenInput()
+            'is_discountable': forms.HiddenInput(),
+            'upc': forms.HiddenInput(),
         }
