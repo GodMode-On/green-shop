@@ -17,4 +17,18 @@ class Product(AbstractProduct):
         else:
             return _("Product {}".format(self.pk))
 
+    def _clean_child(self):
+        """
+        Validates a child product
+        """
+        if not self.parent_id:
+            raise ValidationError(_("A child product needs a parent."))
+        if self.parent_id and not self.parent.is_parent:
+            raise ValidationError(
+                _("You can only assign child products to parent products."))
+        # Note that we only forbid options on product level
+        if self.pk and self.product_options.exists():
+            raise ValidationError(
+                _("A child product can't have options."))
+
 from oscar.apps.catalogue.models import *  # noqa
