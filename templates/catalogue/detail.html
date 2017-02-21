@@ -6,6 +6,15 @@
 {% load currency_filters %}
 {% load display_tags %}
 
+{% block product_description %}
+    {% if product.get_description %}
+    <div id="product_description" class="sub-header">
+        <h2>{% trans "Product Description" %}</h2>
+    </div>
+    <p>{{ product.get_description|safe }}</p>
+    {% endif %}
+{% endblock %}
+
 {% block product_info %}
     <div class="sub-header">
         <h2>{% trans "Product Information" %}</h2>
