@@ -1,5 +1,44 @@
 {% extends "oscar/catalogue/detail.html" %}
+
 {% load staticfiles %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load currency_filters %}
+{% load display_tags %}
+
+{% block product_info %}
+    <div class="sub-header">
+        <h2>{% trans "Product Information" %}</h2>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>
+        </tr>
+
+        {% purchase_info_for_product request product as session %}
+        {% if session.price.exists %}
+            <tr>
+                <th>{% trans "Price" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Availability" %}</th>
+                <td>{{ session.availability.message }}</td>
+            </tr>
+        {% endif %}
+        {% for av in product.attribute_values.all %}
+            <tr>
+                <th>{{ av.attribute.name }}</th>
+                <td>{{ av.value_as_html }}</td>
+            </tr>
+        {% endfor %}
+        {% iffeature "reviews" %}
+            <tr>
+                <th>{% trans "Number of reviews" %}</th>
+                <td>{{ product.num_approved_reviews }}</td>
+            </tr>
+        {% endiffeature %}
+    </table>
+{% endblock %}
 
 {% block extrascripts %}
     {{block.super}}
