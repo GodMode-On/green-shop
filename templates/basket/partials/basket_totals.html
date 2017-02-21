@@ -1,0 +1,45 @@
+{% extends "oscar/basket/partials/basket_totals.html" %}
+{% load i18n %}
+{% load currency_filters %}
+
+{% block shipping_totals %}
+    <tr>
+        <th>&nbsp;</th>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th colspan="2">
+            <h3>{% trans "Shipping" %}</h3>
+        </th>
+    </tr>
+        <tr>
+            <th class="total">
+                {% trans "No selected yet" %}
+            </th>
+            <th class="total align-right">
+                {% trans "unknown" %}
+            </th>
+        </tr>
+{% endblock %}
+
+{% block tax_totals %}
+{% endblock %}
+
+{% block post_order_action_totals %}
+{% endblock %}
+
+{% block order_total %}
+    <tr>
+        <th>&nbsp;</th>
+        <td></td>
+    </tr>
+    <tr>
+        <th class="total"><h3>{% trans "Order total" %}</h3></th>
+        <td class="total align-right">
+            <h3 class="price_color">
+                {{ order_total.incl_tax|currency:basket.currency }}
+            </h3>
+        </td>
+    </tr>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load basket_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% purchase_info_for_product request product as session %}
+
+{% basket_form request product multiple as basket_form %}
+<form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket">
+    {% csrf_token %}
+    {% include "partials/form_fields.html" with form=basket_form %}
+
+    {% if session.availability.is_available_to_buy %}
+        <button type="submit" class="btn btn-lg btn-primary btn-add-to-basket" value="{% trans "Add to basket" %}" data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
+    {% else %}
+        <button class="btn btn-lg btn-primary disabled">{% trans "Unavailible to buy" %}</button>
+    {% endif %}
+</form>
+{% include "catalogue/partials/add_to_wishlist.html" %}
+    
+
