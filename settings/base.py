@@ -314,6 +314,7 @@ from oscar.defaults import *
 
 # Meta
 # ====
+OSCAR_HOMEPAGE = reverse_lazy('catalogue:index')
 
 OSCAR_SHOP_TAGLINE = 'Деревце'
 OSCAR_SHOP_NAME = 'Магазин'
