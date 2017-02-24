@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-24 21:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: apps/basket/forms.py:40
+msgid "Variant"
+msgstr ""
+
+#: apps/basket/forms.py:54
+msgid "Please select a valid product"
+msgstr ""
+
+#: apps/basket/forms.py:72 templates/checkout/checkout.html:98
+#: templates/checkout/thank_you.html:91
+msgid "Quantity"
+msgstr ""
+
+#: apps/catalogue/models.py:9
+msgid "Presentation"
+msgstr "Модифікація"
+
+#: apps/catalogue/models.py:18
+msgid "Product {}"
+msgstr "Продукт {}"
+
+#: apps/catalogue/models.py:31
+msgid "A child product needs a parent."
+msgstr ""
+
+#: apps/catalogue/models.py:34
+msgid "You can only assign child products to parent products."
+msgstr ""
+
+#: apps/catalogue/models.py:38
+msgid "A child product can't have options."
+msgstr ""
+
+#: apps/checkout/mixins.py:20
+msgid "New order:{}"
+msgstr "Нове замовлення:{}"
+
+#: apps/partner/models.py:10
+msgid "Sale price"
+msgstr "Акційна ціна"
+
+#: apps/partner/models.py:16
+msgid "Stock record"
+msgstr ""
+
+#: apps/partner/models.py:17
+msgid "Stock records"
+msgstr ""
+
+#: settings/base.py:59
+msgid "British English"
+msgstr "Британська англійська"
+
+#: settings/base.py:60
+msgid "Polish"
+msgstr "Польська"
+
+#: settings/base.py:61
+msgid "Russian"
+msgstr "Російська"
+
+#: settings/base.py:62
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: settings/base.py:342
+#, fuzzy
+#| msgid "Dashboard access"
+msgid "Dashboard"
+msgstr "Доступ до адмінської"
+
+#: settings/base.py:347
+msgid "Catalogue"
+msgstr ""
+
+#: settings/base.py:351
+#, fuzzy
+#| msgid "Product {}"
+msgid "Products"
+msgstr "Продукт {}"
+
+#: settings/base.py:355
+#, fuzzy
+#| msgid "Product {}"
+msgid "Product Types"
+msgstr "Продукт {}"
+
+#: settings/base.py:359
+msgid "Categories"
+msgstr ""
+
+#: settings/base.py:373
+msgid "Fulfilment"
+msgstr ""
+
+#: settings/base.py:377
+msgid "Orders"
+msgstr ""
+
+#: settings/base.py:381
+msgid "Statistics"
+msgstr ""
+
+#: settings/base.py:399 settings/base.py:403
+msgid "Customers"
+msgstr ""
+
+#: settings/base.py:427
+msgid "Content"
+msgstr ""
+
+#: settings/base.py:431
+msgid "Content blocks"
+msgstr ""
+
+#: settings/base.py:435
+msgid "Content blocks by page"
+msgstr ""
+
+#: settings/base.py:439
+msgid "Pages"
+msgstr ""
+
+#: settings/base.py:453
+msgid "Reports"
+msgstr ""
+
+#: templates/basket/partials/basket_totals.html:13
+#: templates/checkout/thank_you.html:38 templates/checkout/thank_you.html:165
+msgid "Shipping"
+msgstr ""
+
+#: templates/basket/partials/basket_totals.html:18
+msgid "No selected yet"
+msgstr "Поки не вибрано"
+
+#: templates/basket/partials/basket_totals.html:21
+#: templates/checkout/thank_you.html:174
+msgid "unknown"
+msgstr "невідомо"
+
+#: templates/basket/partials/basket_totals.html:38
+#: templates/checkout/thank_you.html:188
+msgid "Order total"
+msgstr ""
+
+#: templates/catalogue/detail.html:12
+msgid "Product Description"
+msgstr ""
+
+#: templates/catalogue/detail.html:20
+msgid "Product Information"
+msgstr ""
+
+#: templates/catalogue/detail.html:24
+#, fuzzy
+#| msgid "Product {}"
+msgid "Product Type"
+msgstr "Продукт {}"
+
+#: templates/catalogue/detail.html:30
+#, fuzzy
+#| msgid "Price (UAH)"
+msgid "Price"
+msgstr "Ціна(грн)"
+
+#: templates/catalogue/detail.html:33
+msgid "Availability"
+msgstr ""
+
+#: templates/catalogue/detail.html:45
+msgid "Number of reviews"
+msgstr ""
+
+#: templates/catalogue/partials/add_to_basket_form.html:14
+#: templates/catalogue/partials/add_to_basket_form_compact.html:17
+#: templates/catalogue/partials/add_to_basket_form_compact.html:20
+msgid "Add to basket"
+msgstr ""
+
+#: templates/catalogue/partials/add_to_basket_form.html:14
+#: templates/catalogue/partials/add_to_basket_form_compact.html:17
+msgid "Adding..."
+msgstr ""
+
+#: templates/catalogue/partials/add_to_basket_form.html:16
+msgid "Unavailible to buy"
+msgstr "Недоступний для покупки"
+
+#: templates/checkout/checkout.html:24
+msgid "Shipping address"
+msgstr ""
+
+#: templates/checkout/checkout.html:30
+msgid "Change"
+msgstr ""
+
+#: templates/checkout/checkout.html:33 templates/checkout/thank_you.html:41
+msgid "Address"
+msgstr ""
+
+#: templates/checkout/checkout.html:41 templates/checkout/thank_you.html:49
+msgid "Contact"
+msgstr ""
+
+#: templates/checkout/checkout.html:43 templates/checkout/thank_you.html:51
+msgid "Phone"
+msgstr ""
+
+#: templates/checkout/checkout.html:45 templates/checkout/thank_you.html:53
+msgid "Email"
+msgstr ""
+
+#: templates/checkout/checkout.html:51 templates/checkout/thank_you.html:59
+msgid "Instructions"
+msgstr ""
+
+#: templates/checkout/checkout.html:63 templates/checkout/thank_you.html:70
+msgid "Payment and Shipping methods"
+msgstr "Методи оплати і доставки"
+
+#: templates/checkout/checkout.html:66 templates/checkout/thank_you.html:73
+msgid "Payment"
+msgstr ""
+
+#: templates/checkout/checkout.html:67 templates/checkout/thank_you.html:74
+msgid "Payment details will be discussed by phone"
+msgstr "Деталі оплати будуть обговорені у телефонному режимі"
+
+#: templates/checkout/checkout.html:74 templates/checkout/thank_you.html:77
+#: templates/checkout/thank_you.html:168
+#, fuzzy
+#| msgid "Payment and Shipping methods"
+msgid "Shipping method"
+msgstr "Методи оплати і доставки"
+
+#: templates/checkout/checkout.html:76 templates/checkout/thank_you.html:78
+msgid "Shipping method will be discussed by phone"
+msgstr "Метод доставки буде обговорений у телефонному режимі"
+
+#: templates/checkout/checkout.html:89
+msgid "Edit order contents"
+msgstr ""
+
+#: templates/checkout/checkout.html:93 templates/checkout/thank_you.html:85
+msgid "Order contents"
+msgstr ""
+
+#: templates/checkout/checkout.html:97
+msgid "Item"
+msgstr ""
+
+#: templates/checkout/checkout.html:99 templates/checkout/thank_you.html:92
+msgid "Total"
+msgstr ""
+
+#: templates/checkout/checkout.html:139 templates/checkout/thank_you.html:140
+msgid "Totals"
+msgstr ""
+
+#: templates/checkout/payment_details.html:8
+msgid "Payment details"
+msgstr ""
+
+#: templates/checkout/payment_details.html:17
+msgid "Our manager will contuct you to discuss payment methods"
+msgstr "Наш продавець зв'яжеться із вами для обговорення деталей оплати"
+
+#: templates/checkout/payment_details.html:18
+msgid "Continue"
+msgstr ""
+
+#: templates/checkout/thank_you.html:8 templates/checkout/thank_you.html:18
+#, python-format
+msgid ""
+"\n"
+"        Order %(number)s: confirmation\n"
+"    "
+msgstr ""
+
+#: templates/checkout/thank_you.html:25
+#, python-format
+msgid ""
+"\n"
+"        Your order has been placed and a confirmation email has been sent - "
+"your order number is\n"
+"        <strong>%(number)s</strong>.\n"
+"        "
+msgstr ""
+
+#: templates/checkout/thank_you.html:30
+msgid ""
+"Our manager will contuct you as soon as possible to discuss payment and "
+"shipping details."
+msgstr ""
+"Наш менеджер зв'яжеться із вам найближчим часом для обговорення методів "
+"оплати і доставки"
+
+#: templates/checkout/thank_you.html:90
+msgid "Items purchased"
+msgstr ""
+
+#: templates/checkout/thank_you.html:113
+#, python-format
+msgid ""
+"\n"
+"                            Estimated dispatch: <strong>%(date)s</strong>\n"
+"                        "
+msgstr ""
+
+#: templates/checkout/thank_you.html:146
+msgid "Basket"
+msgstr ""
+
+#: templates/checkout/thank_you.html:149
+msgid "Basket total"
+msgstr ""
+
+#: templates/checkout/thank_you.html:169
+msgid "To negotiate"
+msgstr "До обговорення"
+
+#: templates/checkout/thank_you.html:172
+msgid "Shipping charge"
+msgstr ""
+
+#: templates/checkout/thank_you.html:201
+msgid "Tracking your order"
+msgstr ""
+
+#: templates/checkout/thank_you.html:203
+msgid "You can track the status of your order"
+msgstr ""
+
+#: templates/checkout/thank_you.html:204
+msgid "View order status"
+msgstr ""
+
+#: templates/checkout/thank_you.html:213
+msgid "Print this page"
+msgstr ""
+
+#: templates/checkout/thank_you.html:216
+msgid "Continue shopping"
+msgstr ""
+
+#: templates/customer/baseaccountpage.html:7
+msgid "Profile"
+msgstr ""
+
+#: templates/customer/baseaccountpage.html:10
+msgid "Order History"
+msgstr ""
+
+#: templates/customer/baseaccountpage.html:13
+msgid "Address Book"
+msgstr ""
+
+#: templates/customer/baseaccountpage.html:16
+msgid "Wish Lists"
+msgstr ""
+
+#: templates/dashboard/catalogue/product_update.html:7
+msgid "Stock and pricing"
+msgstr ""
+
+#: templates/dashboard/catalogue/product_update.html:12
+msgid "Num in stock"
+msgstr ""
+
+#: templates/dashboard/catalogue/product_update.html:13
+msgid "Num allocated"
+msgstr ""
+
+#: templates/dashboard/catalogue/product_update.html:14
+msgid "Price (UAH)"
+msgstr "Ціна(грн)"
+
+#: templates/dashboard/catalogue/product_update.html:15
+msgid "Sale price(UAH)"
+msgstr "Акційна ціна(грн)"
+
+#: templates/dashboard/catalogue/product_update.html:16
+msgid "Delete?"
+msgstr ""
+
+#: templates/gateway/email.txt:2
+#, python-format
+msgid ""
+"\n"
+"A dashboard user has been created for you with credentials:\n"
+"\n"
+"- Email: %(email)s\n"
+"- Password: %(password)s\n"
+"\n"
+"Sign into the dashboard here:\n"
+"http://latest.oscarcommerce.com/dashboard/\n"
+"\n"
+"Feel free to play around with the dashboard, although please don't deface "
+"the\n"
+"public-facing pages.\n"
+"\n"
+"Best wishes,\n"
+"Oscar Team\n"
+msgstr ""
+
+#: templates/gateway/form.html:5 templates/gateway/form.html:14
+msgid "Dashboard access"
+msgstr "Доступ до адмінської"
+
+#: templates/gateway/form.html:11
+msgid "Home"
+msgstr ""
+
+#: templates/gateway/form.html:20
+msgid ""
+"Let us know your email address and we'll create a dashboard user for you and "
+"email you the details."
+msgstr ""
+
+#: templates/gateway/form.html:23
+msgid "Sending..."
+msgstr ""
+
+#: templates/gateway/form.html:23
+msgid "Send email"
+msgstr ""
