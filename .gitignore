@@ -5,6 +5,7 @@ __pycache__/
 
 *~
 *.swp
+*.mo
 
 # passwords, DB settings, API keys
 settings/sensitive/*
