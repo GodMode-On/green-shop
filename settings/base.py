@@ -19,6 +19,7 @@ SQL_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '78.47.222.208'
 ]
 
 # This is needed for the hosted version of the sandbox
