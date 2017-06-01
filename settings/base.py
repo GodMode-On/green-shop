@@ -19,13 +19,14 @@ SQL_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '78.47.222.208'
 ]
 
 # This is needed for the hosted version of the sandbox
 ADMINS = (
     ('Yura Khlyan', 'yura.hlyan@gmail.com'),
 )
-EMAIL_SUBJECT_PREFIX = '[Shop] '
+EMAIL_SUBJECT_PREFIX = '[Магазин] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
