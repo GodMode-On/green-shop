@@ -26,7 +26,7 @@ ALLOWED_HOSTS = [
 ADMINS = (
     ('Yura Khlyan', 'yura.hlyan@gmail.com'),
 )
-EMAIL_SUBJECT_PREFIX = '[Shop] '
+EMAIL_SUBJECT_PREFIX = '[Магазин] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
