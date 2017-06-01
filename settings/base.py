@@ -19,13 +19,14 @@ SQL_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '78.47.222.208'
 ]
 
 # This is needed for the hosted version of the sandbox
 ADMINS = (
     ('Yura Khlyan', 'yura.hlyan@gmail.com'),
 )
-EMAIL_SUBJECT_PREFIX = '[Shop] '
+EMAIL_SUBJECT_PREFIX = '[Магазин] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
@@ -51,7 +52,7 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'uk'
-
+LOCALE_PATHS = (location("locale"), )
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
 gettext_noop = lambda s: s
