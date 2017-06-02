@@ -6,5 +6,5 @@ ALLOWED_HOSTS = [
     '78.47.222.208'
 ]
 
-DEBUG = False
+DEBUG = 'false'
 SQL_DEBUG = DEBUG
