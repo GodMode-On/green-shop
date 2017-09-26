@@ -77,7 +77,10 @@ class ProductForm(OscarProductForm):
         self.fields['upc'].initial = self.generate_upc()
 
     def generate_upc(self):
-        return int(Product.objects.order_by('-pk')[0].pk) + 1
+        try:
+            return int(Product.objects.order_by('-pk')[0].pk) + 1
+        except Exception:
+            return 1
 
     class Meta:
         model = Product
