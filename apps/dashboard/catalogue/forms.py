@@ -79,7 +79,7 @@ class ProductForm(OscarProductForm):
     def generate_upc(self):
         try:
             return int(Product.objects.order_by('-pk')[0].pk) + 1
-        except Product.DoesNotExist:
+        except Exception:
             return 1
 
     class Meta:

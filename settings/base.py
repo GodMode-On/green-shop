@@ -19,7 +19,7 @@ SQL_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '78.47.222.208'
+    '78.47.222.208',
 ]
 
 # This is needed for the hosted version of the sandbox
@@ -57,9 +57,6 @@ LOCALE_PATHS = (location("locale"), )
 # Taken from Django's default setting for LANGUAGES
 gettext_noop = lambda s: s
 LANGUAGES = (
-    ('en-gb', gettext_noop('British English')),
-    ('pl', gettext_noop('Polish')),
-    ('ru', gettext_noop('Russian')),
     ('uk', gettext_noop('Ukrainian')),
 )
 
