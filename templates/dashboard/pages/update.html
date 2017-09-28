@@ -6,8 +6,6 @@
     <div class="table-header">
         <h2>{{ title }}</h2>
     </div>
-    ssss
-
     <form action="." method="post" class="well form-stacked" enctype="multipart/form-data">
         {% csrf_token %}
         {% include 'dashboard/partials/form_fields.html' with form=form %}

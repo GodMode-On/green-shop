@@ -4,7 +4,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '78.47.222.208',
-    'derevce'
+    'derevce.in.ua'
 ]
 
 DEBUG = 'false'
