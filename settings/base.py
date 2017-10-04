@@ -241,6 +241,7 @@ INSTALLED_APPS = [
     # 'debug_toolbar',
     'apps.gateway',     # For allowing dashboard access
     'widget_tweaks',
+    'apps.blog',
 ] + oscar.get_core_apps([
     'apps.partner',
     'apps.dashboard.catalogue',
