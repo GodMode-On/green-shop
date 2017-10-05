@@ -22,7 +22,7 @@
         <div class="panel-heading">
             {{ page_title }} статтю
         </div>
-        <form action="{% url 'dashboard:post-create' %}" class="form form-stacked" method="POST">
+        <form action="." class="form form-stacked" method="POST">
             <div class="panel-content">
                 {% csrf_token %}
                 {% include "dashboard/partials/form_field.html" with field=form.title %}

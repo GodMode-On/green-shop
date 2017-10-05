@@ -27,3 +27,17 @@ class PostCreateView(generic.CreateView):
 
     def get_success_url(self):
         return reverse('dashboard:posts-list')
+
+
+class PostEditView(generic.UpdateView):
+    template_name = 'dashboard/blog/post_create_update.html'
+    model = models.Post
+    form_class = forms.PostCreateUpdateForm
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(PostEditView, self).get_context_data(*args, **kwargs)
+        ctx['page_title'] = "Редагувати"
+        return ctx
+
+    def get_success_url(self):
+        return reverse('dashboard:posts-list')

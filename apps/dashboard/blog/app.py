@@ -16,6 +16,11 @@ class CommsDashboardApplication(DashboardApplication):
                 r'^post_create/$',
                 views.PostCreateView.as_view(),
                 name='post-create'),
+            url(
+                r'^post/(?P<pk>\d+)/edit/$',
+                views.PostEditView.as_view(),
+                name='post-edit'),
+
         ]
         return self.post_process_urls(urls)
 

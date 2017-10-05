@@ -45,7 +45,7 @@
                                 <td>{{ post.post_text|striptags|truncatewords:10 }}</td>
                                 <td>{{ post.date_added }}</td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Редагувати</a>
+                                    <a href="{% url 'dashboard:post-edit' post.pk %}" class="btn btn-primary">Редагувати</a>
                                     <a href="" class="btn btn-danger">Видалити</a>
                                 </td>
                             </tr>
