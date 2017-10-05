@@ -41,3 +41,10 @@ class PostEditView(generic.UpdateView):
 
     def get_success_url(self):
         return reverse('dashboard:posts-list')
+
+
+class PostDeleteView(generic.DeleteView):
+    model = models.Post
+
+    def get_success_url(self):
+        return reverse('dashboard:posts-list')

@@ -32,11 +32,36 @@
                 <button class="btn btn-success" type="submit">Зберегти</button>
                 <a href="{% url 'dashboard:posts-list' %}" class="btn btn-default">Відміна</a>
                 {% if post %}
-                    <button class="btn btn-danger">Видалити</button>
+                    <button type="button" data-toggle="modal" data-target="#remove-post" class="btn btn-danger">
+                        <span>Видалити</span>
+                    </button>
                 {% endif %}
             </div>
         </form>
     </div>
+
+    {% if post %}
+        <div id="remove-post" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Видалити статтю</h3>
+                    </div>
+                    <form action="{% url 'dashboard:post-delete' post.pk %}" method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            Ви дійсно хочете видалити статтю: {{ post.title }}<br>
+                            Цю дію відмінити буде неможливо.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">Відміна</button>
+                            <button type="submit" class="btn btn-danger">Видалити</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock dashboard_content %}
 
 {% block extrascripts %}

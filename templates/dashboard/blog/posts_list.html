@@ -46,9 +46,32 @@
                                 <td>{{ post.date_added }}</td>
                                 <td>
                                     <a href="{% url 'dashboard:post-edit' post.pk %}" class="btn btn-primary">Редагувати</a>
-                                    <a href="" class="btn btn-danger">Видалити</a>
+                                    <button type="button" data-toggle="modal" data-target="#remove-post-{{ post.pk }}" class="btn btn-danger">
+                                        <span>Видалити</span>
+                                    </button>
                                 </td>
                             </tr>
+
+                            <div id="remove-post-{{ post.pk }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3>Видалити статтю</h3>
+                                        </div>
+                                        <form action="{% url 'dashboard:post-delete' post.pk %}" method="post">
+                                            <div class="modal-body">
+                                                {% csrf_token %}
+                                                Ви дійсно хочете видалити статтю: {{ post.title }}<br>
+                                                Цю дію відмінити буде неможливо.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-default" data-dismiss="modal">Відміна</button>
+                                                <button type="submit" class="btn btn-danger">Видалити</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         {% endfor %}
                         <tr></tr>
                     </tbody>

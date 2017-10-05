@@ -20,7 +20,10 @@ class CommsDashboardApplication(DashboardApplication):
                 r'^post/(?P<pk>\d+)/edit/$',
                 views.PostEditView.as_view(),
                 name='post-edit'),
-
+            url(
+                r'^post/(?P<pk>\d+)/delete/$',
+                views.PostDeleteView.as_view(),
+                name='post-delete'),
         ]
         return self.post_process_urls(urls)
 
