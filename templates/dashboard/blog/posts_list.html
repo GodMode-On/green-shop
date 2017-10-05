@@ -16,7 +16,7 @@
 
 {% block header %}
     <div class="page-header">
-        <a href="" class="btn btn-primary btn-lg pull-right"><i class="icon-plus"></i> Створити нову статтю</a>
+        <a href="{% url 'dashboard:post-create' %}" class="btn btn-primary btn-lg pull-right"><i class="icon-plus"></i> Створити нову статтю</a>
         <h1>Статті</h1>
     </div>
 {% endblock header %}
@@ -42,7 +42,7 @@
                         {% for post in posts %}
                             <tr>
                                 <td>{{ post.title }}</td>
-                                <td>{{ post.text|striptags|truncatewords:10 }}</td>
+                                <td>{{ post.post_text|striptags|truncatewords:10 }}</td>
                                 <td>{{ post.date_added }}</td>
                                 <td>
                                     <a href="" class="btn btn-primary">Редагувати</a>

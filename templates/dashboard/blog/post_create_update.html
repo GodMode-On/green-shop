@@ -1,0 +1,45 @@
+{% extends "dashboard/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    Створити статтю | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'dashboard:posts-list' %}">Статті</a>
+        </li>
+        <li class="active">{{ page_title }} статтю</li>
+    </ul>
+{% endblock %}
+
+{% block dashboard_content %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            {{ page_title }} статтю
+        </div>
+        <form action="{% url 'dashboard:post-create' %}" class="form form-stacked" method="POST">
+            <div class="panel-content">
+                {% csrf_token %}
+                {% include "dashboard/partials/form_field.html" with field=form.title %}
+                {% include "dashboard/partials/form_field.html" with field=form.post_text %}
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-success" type="submit">Зберегти</button>
+                <a href="{% url 'dashboard:posts-list' %}" class="btn btn-default">Відміна</a>
+                {% if post %}
+                    <button class="btn btn-danger">Видалити</button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+{% endblock dashboard_content %}
+
+{% block extrascripts %}
+    {{ block.super }}
+
+{% endblock extrascripts %}
