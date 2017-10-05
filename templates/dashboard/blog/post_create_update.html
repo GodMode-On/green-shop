@@ -25,6 +25,7 @@
         <form action="." class="form form-stacked" method="POST">
             <div class="panel-content">
                 {% csrf_token %}
+                <input id="upload" type="file" class="hide">    
                 {% include "dashboard/partials/form_field.html" with field=form.title %}
                 {% include "dashboard/partials/form_field.html" with field=form.post_text %}
             </div>
@@ -66,5 +67,40 @@
 
 {% block extrascripts %}
     {{ block.super }}
-
+    <script type="text/javascript">
+      tinymce.init({
+        selector: '#id_post_text',
+        height: 600,
+        theme: 'modern',
+        paste_data_images: true,
+        image_advtab: true,
+        file_picker_callback: function(callback, value, meta) {
+          if (meta.filetype == 'image') {
+            $('#upload').trigger('click');
+            $('#upload').on('change', function() {
+              var file = this.files[0];
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                callback(e.target.result, {
+                  alt: ''
+                });
+              };
+              reader.readAsDataURL(file);
+            });
+          }
+        },
+        plugins: [
+          'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          'searchreplace wordcount visualblocks visualchars code fullscreen',
+          'insertdatetime media nonbreaking save table contextmenu directionality',
+          'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+        ],
+        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+          '//www.tinymce.com/css/codepen.min.css'
+        ]
+      });
+    </script>
 {% endblock extrascripts %}
