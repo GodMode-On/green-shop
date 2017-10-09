@@ -455,6 +455,12 @@ OSCAR_DASHBOARD_NAVIGATION = [
         'icon': 'icon-bar-chart',
         'url_name': 'dashboard:reports-index',
     },
+    {
+        'label': "Статті",
+        'icon': 'icon-file-text-alt',
+        'url_name': 'dashboard:posts-list',
+    },
+
 ]
 
 
