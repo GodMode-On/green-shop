@@ -23,10 +23,11 @@ urlpatterns = [
     # i18n URLS need to live outside of i18n_patterns scope of Oscar
     url(r'^i18n/', include(django.conf.urls.i18n)),
     # include a basic sitemap
-    url(r'^sitemap\.xml$', views.index, {
-        'sitemaps': base_sitemaps}),
-    url(r'^sitemap-(?P<section>.+)\.xml$',
-        views.sitemap, {'sitemaps': base_sitemaps}),
+    url(r'^sitemap\.xml$', views.index,
+        {'sitemaps': base_sitemaps}),
+    url(r'^sitemap-(?P<section>.+)\.xml$', views.sitemap,
+        {'sitemaps': base_sitemaps},
+        name='django.contrib.sitemaps.views.sitemap')
 ]
 
 # Prefix Oscar URLs with language codes

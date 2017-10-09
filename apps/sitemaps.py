@@ -5,6 +5,8 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import get_language, activate
 from oscar.core.loading import get_model
 
+from apps.blog.models import Post
+
 Product = get_model('catalogue', 'Product')
 Category = get_model('catalogue', 'Category')
 
@@ -57,14 +59,22 @@ class CategorySitemap(I18nSitemap):
         return Category.objects.all()
 
 
+class PostsSitemap(I18nSitemap):
+
+    def items(self):
+        return Post.objects.all()
+
+
 language_neutral_sitemaps = {
     'static': StaticSitemap,
     'products': ProductSitemap,
     'categories': CategorySitemap,
+    'posts': PostsSitemap,
 }
 
 # Construct the sitemaps for every language
 base_sitemaps = {}
 for language, __ in settings.LANGUAGES:
     for name, sitemap_class in language_neutral_sitemaps.items():
-        base_sitemaps['{0}-{1}'.format(name, language)] = sitemap_class(language)
+        base_sitemaps[
+            '{0}-{1}'.format(name, language)] = sitemap_class(language)
