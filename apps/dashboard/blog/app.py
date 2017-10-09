@@ -5,7 +5,7 @@ from oscar.core.application import DashboardApplication
 from apps.dashboard.blog import views
 
 
-class CommsDashboardApplication(DashboardApplication):
+class BlogDashboardApplication(DashboardApplication):
     name = None
     default_permissions = ['is_staff', ]
 
@@ -28,4 +28,4 @@ class CommsDashboardApplication(DashboardApplication):
         return self.post_process_urls(urls)
 
 
-application = CommsDashboardApplication()
+application = BlogDashboardApplication()
