@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from apps.blog import models
+
+
+class PostsListView(generic.ListView):
+    model = models.Post
+    template_name = 'blog/posts_list.html'
+    paginate_by = 10
+    context_object_name = 'posts'
+    ordering = '-date_added'
