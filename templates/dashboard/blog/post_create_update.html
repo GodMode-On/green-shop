@@ -22,7 +22,7 @@
         <div class="panel-heading">
             {{ page_title }} статтю
         </div>
-        <form action="." class="form form-stacked" method="POST">
+        <form class="form form-stacked" method="POST" novalidate>
             <div class="panel-content">
                 {% csrf_token %}
                 <input id="upload" type="file" class="hide">    
