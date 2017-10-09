@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% block subheader %}
+    <a href="{% url 'blog:posts-list' %}">Повернутися до списку статтей</a>
+{% endblock subheader %}
+
 {% block content %}
     <div class="panel">
         <div class="panel-heading">

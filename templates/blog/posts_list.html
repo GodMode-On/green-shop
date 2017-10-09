@@ -5,6 +5,8 @@
 {% endblock headertext %}
 
 {% block content %}
+    {% include "partials/pagination.html" %}
+
     {% for post in posts %}
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class="panel-content">
-                {{ post.post_text|striptags|safe|truncatewords:50 }}
+                {{ post.post_text|safe|truncatewords:50 }}
             </div>
             <div class="panel-footer">
                 <a href="{% url 'blog:post-detail' post.pk %}" class="btn btn-info">
@@ -31,4 +33,6 @@
             </div>
         </div>  
     {% endfor %}
+
+    {% include "partials/pagination.html" %}
 {% endblock content %}

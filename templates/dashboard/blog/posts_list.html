@@ -42,10 +42,11 @@
                         {% for post in posts %}
                             <tr>
                                 <td>{{ post.title }}</td>
-                                <td>{{ post.post_text|striptags|truncatewords:10 }}</td>
+                                <td>{{ post.post_text|striptags|safe|truncatewords:10 }}</td>
                                 <td>{{ post.date_added }}</td>
                                 <td>
-                                    <a href="{% url 'dashboard:post-edit' post.pk %}" class="btn btn-primary">Редагувати</a>
+                                    <a href="{% url 'dashboard:post-edit' post.pk %}" class="btn btn-info">Редагувати</a>
+                                    <a href="{% url 'blog:post-detail' post.pk %}" class="btn btn-success">Переглянути на сайті</a>
                                     <button type="button" data-toggle="modal" data-target="#remove-post-{{ post.pk }}" class="btn btn-danger">
                                         <span>Видалити</span>
                                     </button>

@@ -33,6 +33,7 @@
                 <button class="btn btn-success" type="submit">Зберегти</button>
                 <a href="{% url 'dashboard:posts-list' %}" class="btn btn-default">Відміна</a>
                 {% if post %}
+                    <a href="{% url 'blog:post-detail' post.pk %}" class="btn btn-primary">Переглянути на сайті</a>
                     <button type="button" data-toggle="modal" data-target="#remove-post" class="btn btn-danger">
                         <span>Видалити</span>
                     </button>
