@@ -9,3 +9,8 @@ class PostsListView(generic.ListView):
     paginate_by = 10
     context_object_name = 'posts'
     ordering = '-date_added'
+
+
+class PostDetailView(generic.DetailView):
+    template_name = 'blog/post_detail.html'
+    model = models.Post

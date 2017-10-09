@@ -11,10 +11,10 @@ class BlogApplication(Application):
     def get_urls(self):
         urls = [
             url(r'^$', views.PostsListView.as_view(), name='posts-list'),
-            # url(
-            #     r'^post_create/$',
-            #     views.PostCreateView.as_view(),
-            #     name='post-create'),
+            url(
+                r'^post/(?P<pk>\d+)/detail/$',
+                views.PostDetailView.as_view(),
+                name='post-detail'),
             # url(
             #     r'^post/(?P<pk>\d+)/edit/$',
             #     views.PostEditView.as_view(),
