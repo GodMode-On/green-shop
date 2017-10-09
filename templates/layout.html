@@ -1,0 +1,9 @@
+{% extends "oscar/layout.html" %}
+
+{% load staticfiles %}
+
+{% block scripts %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}" />
+    
+{% endblock scripts %}
