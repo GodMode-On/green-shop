@@ -7,9 +7,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps import views
 
-from oscar.app import application
 from oscar.views import handler500, handler404, handler403
 
+from app import application
 from apps.sitemaps import base_sitemaps
 from apps.gateway import urls as gateway_urls
 

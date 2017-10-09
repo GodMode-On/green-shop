@@ -1,0 +1,87 @@
+{% extends "dashboard/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    Статті | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li class="active">Статті</li>
+    </ul>
+{% endblock %}
+
+{% block header %}
+    <div class="page-header">
+        <a href="{% url 'dashboard:post-create' %}" class="btn btn-primary btn-lg pull-right"><i class="icon-plus"></i> Створити нову статтю</a>
+        <h1>Статті</h1>
+    </div>
+{% endblock header %}
+
+{% block dashboard_content %}
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Список статей
+        </div>
+        <div class="panel-content">
+            {% if posts %}
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Текст</th>
+                            <th>Створено</th>
+                            <th>Дії</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
+                            <tr>
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.post_text|striptags|safe|truncatewords:10 }}</td>
+                                <td>{{ post.date_added }}</td>
+                                <td>
+                                    <a href="{% url 'dashboard:post-edit' post.pk %}" class="btn btn-info">Редагувати</a>
+                                    <a href="{% url 'blog:post-detail' post.pk %}" class="btn btn-success">Переглянути на сайті</a>
+                                    <button type="button" data-toggle="modal" data-target="#remove-post-{{ post.pk }}" class="btn btn-danger">
+                                        <span>Видалити</span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <div id="remove-post-{{ post.pk }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3>Видалити статтю</h3>
+                                        </div>
+                                        <form action="{% url 'dashboard:post-delete' post.pk %}" method="post">
+                                            <div class="modal-body">
+                                                {% csrf_token %}
+                                                Ви дійсно хочете видалити статтю: {{ post.title }}<br>
+                                                Цю дію відмінити буде неможливо.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-default" data-dismiss="modal">Відміна</button>
+                                                <button type="submit" class="btn btn-danger">Видалити</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <tr></tr>
+                    </tbody>
+                    {% include "dashboard/partials/pagination.html" %}
+                </table>
+            {% else %}
+                <h2>Поки не додано жодних статтей</h2>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock dashboard_content %}

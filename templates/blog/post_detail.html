@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block subheader %}
+    <a href="{% url 'blog:posts-list' %}">Повернутися до списку статтей</a>
+{% endblock subheader %}
+
+{% block content %}
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h1 class="pull-left">{{ post.title }}</h1>
+                </div>
+                <div class="col-sm-3">
+                    <div class="pull-right">
+                        <h4>
+                            <small>{{ post.date_added }}</small>
+                        </h4>
+                        {% if user.is_staff %}
+                            <a href="{% url 'dashboard:post-edit' post.pk %}">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                Редагувати статтю
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-content">
+            {{ post.post_text|safe }}
+        </div>
+    </div>
+{% endblock content %}
