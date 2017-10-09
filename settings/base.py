@@ -241,7 +241,10 @@ INSTALLED_APPS = [
     # 'debug_toolbar',
     'apps.gateway',     # For allowing dashboard access
     'widget_tweaks',
+    'apps.blog',
 ] + oscar.get_core_apps([
+    'apps.dashboard',
+    'apps.dashboard.blog',
     'apps.partner',
     'apps.dashboard.catalogue',
     'apps.basket',
@@ -452,6 +455,12 @@ OSCAR_DASHBOARD_NAVIGATION = [
         'icon': 'icon-bar-chart',
         'url_name': 'dashboard:reports-index',
     },
+    {
+        'label': "Статті",
+        'icon': 'icon-file-text-alt',
+        'url_name': 'dashboard:posts-list',
+    },
+
 ]
 
 
