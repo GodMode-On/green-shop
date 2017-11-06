@@ -1,4 +1,4 @@
 ============
-Simple shop. v.0.3.1
+Simple shop. v.0.3.2
 ============
-Release 0.3.1 conatins minimum functionality for e-commerce site. Added simply blog.
+Release 0.3.2 conatins minimum functionality for e-commerce site. Added simply blog.

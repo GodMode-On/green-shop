@@ -18,3 +18,7 @@ body {
     color: #fff;
     background-color: rgb(9, 93, 12);
 }
+
+.navbar-nav > li {
+    margin-right: 2px;
+}
