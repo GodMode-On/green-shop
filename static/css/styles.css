@@ -22,3 +22,26 @@ body {
 .navbar-nav > li {
     margin-right: 2px;
 }
+
+.nav > li > div {
+    margin: 5px;
+}
+
+img.header-img {
+    max-width: 500px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+
+.header .page_inner {
+    padding: 10px 0 10px;
+}
+
+.header .page_inner .text{
+    margin-top: 42px;
+}
