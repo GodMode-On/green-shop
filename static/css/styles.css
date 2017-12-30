@@ -27,8 +27,8 @@ body {
     margin: 5px;
 }
 
-img.header-img {
-    max-width: 500px;
+.page_inner img {
+    width: 100%;
 }
 
 .navbar {
