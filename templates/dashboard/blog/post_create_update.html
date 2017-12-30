@@ -1,0 +1,107 @@
+{% extends "dashboard/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    Створити статтю | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'dashboard:posts-list' %}">Статті</a>
+        </li>
+        <li class="active">{{ page_title }} статтю</li>
+    </ul>
+{% endblock %}
+
+{% block dashboard_content %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            {{ page_title }} статтю
+        </div>
+        <form class="form form-stacked" method="POST" novalidate>
+            <div class="panel-content">
+                {% csrf_token %}
+                <input id="upload" type="file" class="hide">    
+                {% include "dashboard/partials/form_field.html" with field=form.title %}
+                {% include "dashboard/partials/form_field.html" with field=form.post_text %}
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-success" type="submit">Зберегти</button>
+                <a href="{% url 'dashboard:posts-list' %}" class="btn btn-default">Відміна</a>
+                {% if post %}
+                    <a href="{% url 'blog:post-detail' post.pk %}" class="btn btn-primary">Переглянути на сайті</a>
+                    <button type="button" data-toggle="modal" data-target="#remove-post" class="btn btn-danger">
+                        <span>Видалити</span>
+                    </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    {% if post %}
+        <div id="remove-post" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Видалити статтю</h3>
+                    </div>
+                    <form action="{% url 'dashboard:post-delete' post.pk %}" method="post">
+                        <div class="modal-body">
+                            {% csrf_token %}
+                            Ви дійсно хочете видалити статтю: {{ post.title }}<br>
+                            Цю дію відмінити буде неможливо.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">Відміна</button>
+                            <button type="submit" class="btn btn-danger">Видалити</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock dashboard_content %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+      tinymce.init({
+        selector: '#id_post_text',
+        height: 600,
+        theme: 'modern',
+        paste_data_images: true,
+        image_advtab: true,
+        file_picker_callback: function(callback, value, meta) {
+          if (meta.filetype == 'image') {
+            $('#upload').trigger('click');
+            $('#upload').on('change', function() {
+              var file = this.files[0];
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                callback(e.target.result, {
+                  alt: ''
+                });
+              };
+              reader.readAsDataURL(file);
+            });
+          }
+        },
+        plugins: [
+          'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          'searchreplace wordcount visualblocks visualchars code fullscreen',
+          'insertdatetime media nonbreaking save table contextmenu directionality',
+          'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+        ],
+        toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+          '//www.tinymce.com/css/codepen.min.css'
+        ]
+      });
+    </script>
+{% endblock extrascripts %}

@@ -1,0 +1,13 @@
+{% extends "oscar/partials/nav_primary.html" %}
+
+{% block nav_extra %}
+    <li class="active">
+        <a href="/contacts/">Контакна інформація</a>
+    </li>
+    <li class="active">
+        <a href="/photos/">Фото</a>
+    </li>
+    <li class="active">
+        <a href="{% url 'blog:posts-list' %}">Статті</a>
+    </li>
+{% endblock nav_extra %}

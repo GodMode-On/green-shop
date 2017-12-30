@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 from .sensitive.secret_key import SECRET_KEY
 from .sensitive.settings_postgres import DATABASES
 
@@ -17,13 +19,14 @@ SQL_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '78.47.222.208',
 ]
 
 # This is needed for the hosted version of the sandbox
 ADMINS = (
     ('Yura Khlyan', 'yura.hlyan@gmail.com'),
 )
-EMAIL_SUBJECT_PREFIX = '[Shop] '
+EMAIL_SUBJECT_PREFIX = '[Магазин] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
@@ -49,14 +52,11 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'uk'
-
+LOCALE_PATHS = (location("locale"), )
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
 gettext_noop = lambda s: s
 LANGUAGES = (
-    ('en-gb', gettext_noop('British English')),
-    ('pl', gettext_noop('Polish')),
-    ('ru', gettext_noop('Russian')),
     ('uk', gettext_noop('Ukrainian')),
 )
 
@@ -241,7 +241,10 @@ INSTALLED_APPS = [
     # 'debug_toolbar',
     'apps.gateway',     # For allowing dashboard access
     'widget_tweaks',
+    'apps.blog',
 ] + oscar.get_core_apps([
+    'apps.dashboard',
+    'apps.dashboard.blog',
     'apps.partner',
     'apps.dashboard.catalogue',
     'apps.basket',
@@ -316,6 +319,7 @@ from oscar.defaults import *
 
 # Meta
 # ====
+OSCAR_HOMEPAGE = reverse_lazy('catalogue:index')
 
 OSCAR_SHOP_TAGLINE = 'Деревце'
 OSCAR_SHOP_NAME = 'Магазин'
@@ -332,6 +336,132 @@ OSCAR_DEFAULT_CURRENCY = 'UAH'
 DISPLAY_VERSION = False
 
 OSCAR_HIDDEN_FEATURES = ['reviews']
+
+# Menu structure of the dashboard navigation
+OSCAR_DASHBOARD_NAVIGATION = [
+    {
+        'label': _('Dashboard'),
+        'icon': 'icon-th-list',
+        'url_name': 'dashboard:index',
+    },
+    {
+        'label': _('Catalogue'),
+        'icon': 'icon-sitemap',
+        'children': [
+            {
+                'label': _('Products'),
+                'url_name': 'dashboard:catalogue-product-list',
+            },
+            {
+                'label': _('Product Types'),
+                'url_name': 'dashboard:catalogue-class-list',
+            },
+            {
+                'label': _('Categories'),
+                'url_name': 'dashboard:catalogue-category-list',
+            },
+            # {
+            #     'label': _('Ranges'),
+            #     'url_name': 'dashboard:range-list',
+            # },
+            # {
+            #     'label': _('Low stock alerts'),
+            #     'url_name': 'dashboard:stock-alert-list',
+            # },
+        ]
+    },
+    {
+        'label': _('Fulfilment'),
+        'icon': 'icon-shopping-cart',
+        'children': [
+            {
+                'label': _('Orders'),
+                'url_name': 'dashboard:order-list',
+            },
+            {
+                'label': _('Statistics'),
+                'url_name': 'dashboard:order-stats',
+            },
+            # {
+            #     'label': _('Partners'),
+            #     'url_name': 'dashboard:partner-list',
+            # },
+            # The shipping method dashboard is disabled by default as it might
+            # be confusing. Weight-based shipping methods aren't hooked into
+            # the shipping repository by default (as it would make
+            # customising the repository slightly more difficult).
+            # {
+            #     'label': _('Shipping charges'),
+            #     'url_name': 'dashboard:shipping-method-list',
+            # },
+        ]
+    },
+    {
+        'label': _('Customers'),
+        'icon': 'icon-group',
+        'children': [
+            {
+                'label': _('Customers'),
+                'url_name': 'dashboard:users-index',
+            },
+            # {
+            #     'label': _('Stock alert requests'),
+            #     'url_name': 'dashboard:user-alert-list',
+            # },
+        ]
+    },
+    # {
+    #     'label': _('Offers'),
+    #     'icon': 'icon-bullhorn',
+    #     'children': [
+    #         {
+    #             'label': _('Offers'),
+    #             'url_name': 'dashboard:offer-list',
+    #         },
+    #         {
+    #             'label': _('Vouchers'),
+    #             'url_name': 'dashboard:voucher-list',
+    #         },
+    #     ],
+    # },
+    {
+        'label': _('Content'),
+        'icon': 'icon-folder-close',
+        'children': [
+            {
+                'label': _('Content blocks'),
+                'url_name': 'dashboard:promotion-list',
+            },
+            {
+                'label': _('Content blocks by page'),
+                'url_name': 'dashboard:promotion-list-by-page',
+            },
+            {
+                'label': _('Pages'),
+                'url_name': 'dashboard:page-list',
+            },
+            # {
+            #     'label': _('Email templates'),
+            #     'url_name': 'dashboard:comms-list',
+            # },
+            # {
+            #     'label': _('Reviews'),
+            #     'url_name': 'dashboard:reviews-list',
+            # },
+        ]
+    },
+    {
+        'label': _('Reports'),
+        'icon': 'icon-bar-chart',
+        'url_name': 'dashboard:reports-index',
+    },
+    {
+        'label': "Статті",
+        'icon': 'icon-file-text-alt',
+        'url_name': 'dashboard:posts-list',
+    },
+
+]
 
 
 # Order processing
